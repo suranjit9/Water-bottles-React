@@ -1,0 +1,12 @@
+
+
+.bottole{
+    border: 2px solid rgb(179, 235, 219);
+    padding: 10px;
+    /* margin: 10px; */
+    border-radius: 16px;
+   
+}
+.bottole img{
+    width: 300px;
+}
