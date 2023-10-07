@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Bottol from "./bottol";
 import './Bottol.css';
-import { addToLS, getStoredCard } from "../../utiltis/local-S";
+import { addToLS, getStoredCard, removeProduct } from "../../utiltis/local-S";
 import Card from "./card/card";
 
 
@@ -37,11 +37,21 @@ const Bottols = () => {
         setCart(newCard);
         addToLS(bottle.id);
     }
+    const handleRemoveCard = id=>{
+        // Visual Card Remove
+        const remenineCard = card.filter(bottle => bottle.id !== id);
+        setCart(remenineCard);
+        // Remove From LS
+       removeProduct(id);
+    }
+        
+       
+    
     return (
         <div>
             <h1>Bottole: {bottols.length}</h1>
             
-            <Card card ={card}></Card>
+            <Card card ={card}handleRemoveCard={handleRemoveCard}></Card>
             <div className="bottolContener">
                 {
                     bottols.map(bottol => <Bottol

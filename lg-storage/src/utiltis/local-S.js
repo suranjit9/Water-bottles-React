@@ -17,5 +17,11 @@ const saveCard = card =>{
     localStorage.setItem('card',cardStigify);
 }
 
+const removeProduct =id =>{
+    // remove for local
+    const removeItem = getStoredCard();
+    const remaming = removeItem.filter(idx=> idx!==id);
+    saveCard(remaming);
+}
 
-export {addToLS, getStoredCard}
+export {addToLS, getStoredCard,removeProduct}
